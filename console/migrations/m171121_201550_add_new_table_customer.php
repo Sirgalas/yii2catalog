@@ -12,7 +12,7 @@ class m171121_201550_add_new_table_customer extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('customer',[
+        $this->createTable('{{%customer}}',[
             'id'=>$this->primaryKey(),
             'name'=>$this->string(255)->notNull(),
             'last_name'=>$this->string(255)->notNull(),
@@ -22,7 +22,7 @@ class m171121_201550_add_new_table_customer extends Migration
             'street'=>$this->string(255)->notNull(),
             'home'=>$this->integer()->notNull(),
             'apartment'=>$this->integer(),
-            'created_at'=>$this->dateTime()->defaultValue('CURRENT_TIMESTAMP'),
+            'created_at'=>$this->dateTime(),
             'deleted_at'=>$this->dateTime(),
             'phone'=>$this->string(255),
             'id_parent_family'=>$this->integer(),
@@ -38,19 +38,19 @@ class m171121_201550_add_new_table_customer extends Migration
             'work'=>$this->string(100),
             'out_shcool'=>$this->string(510)
         ]);
-        $this->createTable('type_services',[
+        $this->createTable('{{%type_services}}',[
             'id'=>$this->primaryKey(),
             'code'=>$this->string(50),
             'content'=>$this->string(510),
             'status'=>$this->integer(3)
         ]);
-        $this->createTable('category_family',[
+        $this->createTable('{{%category_family}}',[
             'id'=>$this->primaryKey(),
             'id_customer'=>$this->integer()->notNull(),
             'content'=>$this->string(),
             'description'=>$this->string(510)
         ]);
-        $this->createTable('services',[
+        $this->createTable('{{%services}}',[
             'id'=>$this->primaryKey(),
             'id_customer'=>$this->integer()->notNull(),
             'id_type_services'=>$this->integer()->notNull(),
@@ -62,7 +62,7 @@ class m171121_201550_add_new_table_customer extends Migration
             'type_user'=>$this->integer()->notNull(),
             'type_services'=>$this->string(255)
         ]);
-        $this->createTable('orphan',[
+        $this->createTable('{{%orphan}}',[
             'id'=>$this->primaryKey(),
             'home'=>$this->integer(2)->defaultValue(1),
             'availability'=>$this->integer(2)->defaultValue(1),
@@ -77,23 +77,12 @@ class m171121_201550_add_new_table_customer extends Migration
      */
     public function safeDown()
     {
-        echo "m171121_201550_add_new_table_customer cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%customer}}');
+        $this->dropTable('{{%type_services}}');
+        $this->dropTable('{{%category_family}}');
+        $this->dropTable('{{%services}}');
+        $this->dropTable('{{%orphan}}');
+        
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m171121_201550_add_new_table_customer cannot be reverted.\n";
-
-        return false;
-    }
-    */
+    
 }

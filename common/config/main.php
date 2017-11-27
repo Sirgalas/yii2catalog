@@ -13,9 +13,9 @@ return [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'modelMap' => [
+            /*'modelMap' => [
                 'User' => 'common\models\User',
-            ],
+            ],*/
             'adminPermission' => 'role, permission',
             'admins'=>['Sergalas'],
         ],
