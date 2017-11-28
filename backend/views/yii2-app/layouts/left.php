@@ -34,6 +34,7 @@
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => Yii::t('app','USER_REDACT'), 'icon' => 'fa fa-users', 'url' => ['/rbac/permission/index']],
                     [
                         'label' => 'Same tools',
                         'icon' => 'share',

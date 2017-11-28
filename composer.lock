@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "edde55bdf811d944d14c1af32cc7b3ce",
+    "content-hash": "2a6617041843497c5f468871375a35b2",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -147,6 +147,28 @@
                 "shasum": null
             },
             "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/semantic",
+            "version": "2.2.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Semantic-Org/Semantic-UI.git",
+                "reference": "5550bca6afe30aa5ba4b1a5a853c91e358ab4a5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Semantic-Org/Semantic-UI/zipball/5550bca6afe30aa5ba4b1a5a853c91e358ab4a5d",
+                "reference": "5550bca6afe30aa5ba4b1a5a853c91e358ab4a5d",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -1533,6 +1555,55 @@
             "time": "2017-05-11T14:25:49+00:00"
         },
         {
+            "name": "sirgalas/yii2-edit-translation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sirgalas/yii2-edit-translation.git",
+                "reference": "8e498d919391cc8c963a8e9e6721e8f55523def8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sirgalas/yii2-edit-translation/zipball/8e498d919391cc8c963a8e9e6721e8f55523def8",
+                "reference": "8e498d919391cc8c963a8e9e6721e8f55523def8",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-editable": "@dev",
+                "kartik-v/yii2-grid": "@dev",
+                "kartik-v/yii2-mpdf": "dev-master",
+                "yiisoft/yii2": "~2",
+                "zelenin/yii2-i18n-module": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sirgalas\\translation\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serge Beloventsev",
+                    "email": "hudos@rambler.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "extension nifying two global extensions zelenin/yii2-i18n-module and kartik-v/yii2-grid",
+            "homepage": "https://github.com/Sirgalas/yii2-edit-translation",
+            "keywords": [
+                "extension",
+                "grid",
+                "translation",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-04-24T11:06:03+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.0.2",
             "source": {
@@ -1931,6 +2002,101 @@
                 "yii2"
             ],
             "time": "2017-08-04T10:48:17+00:00"
+        },
+        {
+            "name": "zelenin/yii2-i18n-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zelenin/yii2-i18n-module.git",
+                "reference": "4b0eb4c711778c6ae282d89a4d33a786184ef8a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zelenin/yii2-i18n-module/zipball/4b0eb4c711778c6ae282d89a4d33a786184ef8a0",
+                "reference": "4b0eb4c711778c6ae282d89a4d33a786184ef8a0",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2",
+                "zelenin/yii2-semantic-ui": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "Zelenin\\yii\\modules\\I18n\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zelenin\\yii\\modules\\I18n\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 i18n (internalization) module makes the translation of your application so simple",
+            "homepage": "https://github.com/zelenin/yii2-i18n-module",
+            "keywords": [
+                "i18n",
+                "translation",
+                "translations",
+                "yii2"
+            ],
+            "time": "2015-10-27T18:38:39+00:00"
+        },
+        {
+            "name": "zelenin/yii2-semantic-ui",
+            "version": "2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zelenin/yii2-semantic-ui.git",
+                "reference": "3e5e599b047832aa5c1358bf8a67703dd93ede84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zelenin/yii2-semantic-ui/zipball/3e5e599b047832aa5c1358bf8a67703dd93ede84",
+                "reference": "3e5e599b047832aa5c1358bf8a67703dd93ede84",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/semantic": "~2",
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "Zelenin\\yii\\SemanticUI\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Semantic UI extension for Yii2",
+            "homepage": "https://github.com/zelenin/yii2-semantic-ui",
+            "keywords": [
+                "semantic",
+                "semantic ui",
+                "widgets",
+                "yii2"
+            ],
+            "time": "2017-02-06T00:06:06+00:00"
         }
     ],
     "packages-dev": [
@@ -4513,7 +4679,9 @@
         "kartik-v/yii2-mpdf": 20,
         "kartik-v/yii2-editable": 20,
         "kartik-v/yii2-widget-select2": 20,
-        "dektrium/yii2-rbac": 20
+        "dektrium/yii2-rbac": 20,
+        "zelenin/yii2-i18n-module": 20,
+        "sirgalas/yii2-edit-translation": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
