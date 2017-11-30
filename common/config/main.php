@@ -30,7 +30,7 @@ return [
             ]
         ],
     ],
-    
+
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
@@ -41,6 +41,6 @@ return [
             'admins'=>['Sergalas'],
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
-        'i18n' => Zelenin\yii\modules\I18n\Module::className()
+        
     ],
 ];

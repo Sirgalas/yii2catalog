@@ -12,8 +12,15 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
+        'i18n' => Zelenin\yii\modules\I18n\Module::className(),
+        'translation' => [
+            'class' => 'sirgalas\translation\Module',
+        ],
         'user' => [
             'as backend' => 'dektrium\user\filters\BackendFilter',
+        ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
         ],
     ],
     'components' => [
