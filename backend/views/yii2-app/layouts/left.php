@@ -35,6 +35,7 @@
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     ['label' => Yii::t('app','USER_REDACT'), 'icon' => 'fa fa-users', 'url' => ['/rbac/permission/index']],
+                    ['label' => Yii::t('backend','SOURCEMESSAGE'), 'icon' => 'fa fa-times', 'url' => ['/translation/transliter/index']],
                     [
                         'label' => 'Same tools',
                         'icon' => 'share',

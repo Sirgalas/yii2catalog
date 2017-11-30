@@ -20,6 +20,16 @@ use Yii;
  */
 class Services extends \yii\db\ActiveRecord
 {
+    const SEVICES_ONE=0;
+    const SERVICES_TRACKING=1;
+    const SERVICES_SUPPORT=2;
+
+    public static $services_status = [
+        self::SEVICES_ONE => 'Разовая',
+        self::SERVICES_TRACKING => 'Сопровождение',
+        self::SERVICES_SUPPORT => 'Содействие',
+
+    ];
     /**
      * @inheritdoc
      */
