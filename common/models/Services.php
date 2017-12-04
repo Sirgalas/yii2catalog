@@ -59,15 +59,28 @@ class Services extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_customer' => 'Id Customer',
-            'id_type_services' => 'Id Type Services',
-            'id_user_responsible' => 'Id User Responsible',
-            'id_user_spec' => 'Id User Spec',
-            'content' => 'Content',
-            'result' => 'Result',
-            'created_at' => 'Created At',
-            'type_user' => 'Type User',
-            'type_services' => 'Type Services',
+            'id_customer' => Yii::t('app','Id Customer'),
+            'id_type_services' => Yii::t('app','Id Type Services'),
+            'id_user_responsible' => Yii::t('app','Id User Responsible'),
+            'id_user_spec' => Yii::t('app','Id User Spec'),
+            'content' => Yii::t('app','Content'),
+            'result' => Yii::t('app','Result'),
+            'created_at' => Yii::t('app','Created At'),
+            'type_user' => Yii::t('app','Type User'),
+            'type_services' => Yii::t('app','Type Services'),
         ];
+    }
+
+    public function getCustomer(){
+        return $this->hasOne(Customer::className(),['id'=>'id_customer']);
+    }
+    public function getSpec(){
+        return $this->hasOne(User::className(),['id'=>'id_user_spec']);
+    }
+    public function getUserService(){
+        return$this->hasOne(User::className(),['id'=>'id_user_responsible']);
+    }
+    public function getServicesType(){
+        return $this->hasOne(Services::className(),['id'=>'id_type_services']);
     }
 }

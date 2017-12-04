@@ -47,13 +47,21 @@ class Mail extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'authority' => 'Authority',
-            'in_date' => 'In Date',
-            'out_date' => 'Out Date',
-            'in_info' => 'In Info',
-            'out_info' => 'Out Info',
-            'customer_id' => 'Customer ID',
-            'user_id' => 'User ID',
+            'authority' => Yii::t('app','Authority'),
+            'in_date' =>Yii::t('app','In Date'),
+            'out_date' => Yii::t('app','Out Date'),
+            'in_info' => Yii::t('app','In Info'),
+            'out_info' => Yii::t('app','Out Info'),
+            'customer_id' => Yii::t('app','Customer ID'),
+            'user_id' => Yii::t('app','User ID'),
         ];
+    }
+
+    public function getCustomer(){
+        return $this->hasOne(Customer::className(),['id'=>'customer_id']);
+    }
+    
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
     }
 }

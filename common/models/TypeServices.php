@@ -41,9 +41,9 @@ class TypeServices extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'code' => 'Code',
-            'content' => 'Content',
-            'status' => 'Status',
+            'code' => Yii::t('app','Code'),
+            'content' => Yii::t('app','Content'),
+            'status' => Yii::t('app','Status'),
         ];
     }
 }

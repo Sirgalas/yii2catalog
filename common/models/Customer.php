@@ -31,6 +31,7 @@ use Yii;
  * @property integer $customer_doc
  * @property string $work
  * @property string $out_shcool
+ * @property string $family_type_id
  */
 class Customer extends \yii\db\ActiveRecord
 {
@@ -44,14 +45,15 @@ class Customer extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
+     * 'info_family' перевести в text
      */
     public function rules()
     {
         return [
             [['name', 'last_name', 'street', 'home'], 'required'],
             [['date_of_birth', 'created_at', 'deleted_at'], 'safe'],
-            [['home', 'apartment', 'id_parent_family', 'type_family_member', 'type_child', 'family_income', 'accompanying', 'info_family', 'user_id', 'customer_doc'], 'integer'],
-            [['char_of_housing'], 'string'],
+            [['home', 'apartment', 'id_parent_family', 'type_family_member', 'type_child', 'family_income', 'accompanying', 'user_id', 'customer_doc'], 'integer'],
+            [['char_of_housing','info_family'], 'string'],
             [['name', 'last_name', 'family_name', 'town', 'street', 'phone'], 'string', 'max' => 255],
             [['snils'], 'string', 'max' => 25],
             [['work'], 'string', 'max' => 100],
@@ -90,5 +92,19 @@ class Customer extends \yii\db\ActiveRecord
             'work' => Yii::t('app','Work'),
             'out_shcool' => Yii::t('app','Out Shcool'),
         ];
+    }
+    public function getParent(){
+        return $this->hasOne(Customer::className(),['id'=>'id_parent_family']);
+    }
+    public function getCilds(){
+        return $this->hasMany(Customer::className(),['id_parent_family'=>'id']);
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
+    }
+
+    public function getMail(){
+        return $this->hasMany(Mail::className(),['id'=>'customer_doc']);
     }
 }

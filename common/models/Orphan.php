@@ -14,6 +14,7 @@ use Yii;
  * @property integer $housing_account
  * @property integer $working
  * @property integer $user_id
+ * @property integer $id_customer
  */
 class Orphan extends \yii\db\ActiveRecord
 {
@@ -73,8 +74,8 @@ class Orphan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['user_id','require' ],
-            [['home', 'availability', 'check_in', 'housing_account', 'working','user_id'], 'integer'],
+            ['user_id','id_customer','require' ],
+            [['home', 'availability', 'check_in', 'housing_account', 'working','user_id','id_customer'], 'integer'],
         ];
     }
 
@@ -85,11 +86,11 @@ class Orphan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'home' => 'Home',
-            'availability' => 'Availability',
-            'check_in' => 'Check In',
-            'housing_account' => 'Housing Account',
-            'working' => 'Working',
+            'home' => Yii::t('app','Home'),
+            'availability' => Yii::t('app','Availability'),
+            'check_in' => Yii::t('app','Check In'),
+            'housing_account' => Yii::t('app','Housing Account'),
+            'working' => Yii::t('app','Working'),
         ];
     }
     
