@@ -1,0 +1,52 @@
+'Name'                  Имя
+'Last Name'             Отчество
+'Family Name'           Фамилия
+'Date Of Birth'         Дата рождения
+'Town'                  Село
+'Street'                Улица
+'Home'                  Дом
+'Apartment'             Квартира
+'Created At'            Дата внесения
+'Deleted At'            Дата Удаления
+'Phone'                 Телефон
+'Id Parent Family'      Член какой семьи
+Type Family Member'     Кто он в семье
+'Type Child'            Категория детя
+'Family Income'         Доход семь
+'Char Of Housing'       Характиристика семьи
+'Accompanying'          Сопровождение
+'Info Family'           Информация о семье
+'User ID'               Ведущий специалист
+'Snils'
+'Customer Doc'          Документы удостоверяюшие личность
+'Work'                  Место работы
+'Out Shcool'            Внешкольная занятость
+
+'Type'                  Тип семьи
+'Comment'               Коментарий
+'Code'                  Код типа семьи
+
+
+'Home'                  Информация о собственности желья
+'Availability'          Информация о пригодности жилья
+'Check In'              Информация о регистрации
+'Housing Account'       Информация о квартином учете
+'Working'               Занятость
+
+
+'Id Customer'           Получатель услуг
+'Id Type Services'      Наименование услуги
+'Id User Responsible'   Специалист окозавший услугу
+'Id User Spec'          Ответственый специалист
+'Content'               Дополнительная информация
+'Result'                Результат
+'Created At'            Дата оказания
+'Type Services'         Тип услуги
+
+'Authority'             Организация
+'In Date'               Дата входяшшая,
+'Out Date'              Дата исходящая
+'In Info'               Входящая информация
+'Out Info'              Исходящщая информация,
+'Customer ID'           По кому
+'User ID'               Кто подготовил
