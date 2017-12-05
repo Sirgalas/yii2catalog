@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Orphan */
 
-$this->title = 'Create Orphan';
-$this->params['breadcrumbs'][] = ['label' => 'Orphans', 'url' => ['index']];
+$this->title = Yii::t('app','Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Orphans'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orphan-create">

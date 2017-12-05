@@ -6,7 +6,7 @@
 'Street'                Улица
 'Home'                  Дом
 'Apartment'             Квартира
-'Created At'            Дата внесения
+'Created At'            Дата создания
 'Deleted At'            Дата Удаления
 'Phone'                 Телефон
 'Id Parent Family'      Член какой семьи
@@ -50,3 +50,17 @@ Type Family Member'     Кто он в семье
 'Out Info'              Исходящщая информация,
 'Customer ID'           По кому
 'User ID'               Кто подготовил
+
+'Id Deputy'             Заменюший
+'Id User'               Ответствкенный
+'Update At'             Дата регистрации
+
+'Customers'             Получатель услуг
+'Create'                Создать
+'Deputies'              Назначить замешаюшего
+'Delete'                Удалить
+'Family Types'          Тип семьи лица
+'Mails'                 Кориспонденция
+'Services'              Получатель
+'Type Services'         Типы услуг
+'Orphans'               ЧДС

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Mail */
 
-$this->title = 'Create Mail';
-$this->params['breadcrumbs'][] = ['label' => 'Mails', 'url' => ['index']];
+$this->title = Yii::t('app','Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Mails'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mail-create">

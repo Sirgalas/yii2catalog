@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\MailSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Mails';
+$this->title = Yii::t('app','Mails');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mail-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Mail', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app','Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

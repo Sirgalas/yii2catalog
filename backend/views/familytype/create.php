@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\FamilyType */
 
-$this->title = 'Create Family Type';
-$this->params['breadcrumbs'][] = ['label' => 'Family Types', 'url' => ['index']];
+$this->title = Yii::t('app','Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Family Types'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="family-type-create">
