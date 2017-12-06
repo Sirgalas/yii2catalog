@@ -32,34 +32,32 @@ class Orphan extends \yii\db\ActiveRecord
     const WORKING_STUDY_COLLEGE=2;
     const WORKING_STUDY_UNIVERSITY=3;
     const WORKING_NEED_STUDY=4;
-    
-    
+
+
     public static $home_status = [
         self::HOME_HAVE => 'В собственности',
         self::HOME_NOT_HAVE => 'На праве пользования',
     ];
-
     public static $suitable_status = [
         self::SUITABLE => 'Пригодное',
         self::NOT_SUITABLE => 'Не пригодное',
     ];
     public static $check_in = [
-        self::CHECK_IN_YES => 'Состоит',
+        self::CHECK_IN_YES => 'Стоит',
         self::CHECK_IN_NO => 'Нуждается в постановке',
     ];
-
     public static $housing_account_status = [
         self::HOUSING_ACCOUNT_YES => 'Пригодное',
         self::HOUSING_ACCOUNT_NO => 'Не пригодное',
     ];
-
-    public static $Wworking_status = [
+    public static $Working_status = [
         self::WORKING_YES => 'Трудоустроен',
         self::WORKING_NO => 'Нуждается в трудоустройстве',
         self::WORKING_STUDY_COLLEGE => 'Получает профессиональное образование',
         self::WORKING_STUDY_UNIVERSITY => 'Получает высшее образование',
         self::WORKING_NEED_STUDY => 'Нуждается в образовании',
     ];
+    /**
     /**
      * @inheritdoc
      */
@@ -74,8 +72,8 @@ class Orphan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['user_id','id_customer','require' ],
-            [['home', 'availability', 'check_in', 'housing_account', 'working','user_id','id_customer'], 'integer'],
+            [['home', 'availability', 'check_in', 'housing_account', 'working', 'user_id', 'id_customer'], 'integer'],
+            [['user_id', 'id_customer'], 'required'],
         ];
     }
 
@@ -86,15 +84,13 @@ class Orphan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'home' => Yii::t('app','Home'),
-            'availability' => Yii::t('app','Availability'),
-            'check_in' => Yii::t('app','Check In'),
-            'housing_account' => Yii::t('app','Housing Account'),
-            'working' => Yii::t('app','Working'),
+            'home' => 'Home',
+            'availability' => 'Availability',
+            'check_in' => 'Check In',
+            'housing_account' => 'Housing Account',
+            'working' => 'Working',
+            'user_id' => 'User ID',
+            'id_customer' => 'Id Customer',
         ];
-    }
-    
-    public function getCustomer(){
-        return $this->hasOne(Customer::className(),['id'=>'user_id']);
     }
 }

@@ -64,3 +64,7 @@ Type Family Member'     Кто он в семье
 'Services'              Получатель
 'Type Services'         Типы услуг
 'Orphans'               ЧДС
+SOURCEMESSAGE           Интернационализация
+USER_REDACT             Редактирование специалистов
+'Select customer'       Выбрать получателя.
+

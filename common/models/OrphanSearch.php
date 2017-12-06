@@ -18,7 +18,7 @@ class OrphanSearch extends Orphan
     public function rules()
     {
         return [
-            [['id', 'home', 'availability', 'check_in', 'housing_account', 'working'], 'integer'],
+            [['id', 'home', 'availability', 'check_in', 'housing_account', 'working','id_customer',], 'integer'],
         ];
     }
 
@@ -64,6 +64,7 @@ class OrphanSearch extends Orphan
             'check_in' => $this->check_in,
             'housing_account' => $this->housing_account,
             'working' => $this->working,
+            'id_customer'=>$this->id_customer,
         ]);
 
         return $dataProvider;

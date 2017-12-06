@@ -107,4 +107,8 @@ class Customer extends \yii\db\ActiveRecord
     public function getMail(){
         return $this->hasMany(Mail::className(),['id'=>'customer_doc']);
     }
+
+    public function  getFullName(){
+        return $this->name.' '.$this->last_name.' '. $this->family_name;
+    }
 }

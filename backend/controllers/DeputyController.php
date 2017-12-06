@@ -2,19 +2,17 @@
 
 namespace backend\controllers;
 
-use common\models\Customer;
 use Yii;
-use common\models\Orphan;
-use common\models\OrphanSearch;
-use yii\helpers\ArrayHelper;
+use common\models\Deputy;
+use common\models\DeputySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * OrphanController implements the CRUD actions for Orphan model.
+ * DeputyController implements the CRUD actions for Deputy model.
  */
-class OrphanController extends Controller
+class DeputyController extends Controller
 {
     /**
      * @inheritdoc
@@ -32,12 +30,12 @@ class OrphanController extends Controller
     }
 
     /**
-     * Lists all Orphan models.
+     * Lists all Deputy models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new OrphanSearch();
+        $searchModel = new DeputySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class OrphanController extends Controller
     }
 
     /**
-     * Displays a single Orphan model.
+     * Displays a single Deputy model.
      * @param integer $id
      * @return mixed
      */
@@ -59,26 +57,25 @@ class OrphanController extends Controller
     }
 
     /**
-     * Creates a new Orphan model.
+     * Creates a new Deputy model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Orphan();
-        $customer=ArrayHelper::map(Customer::find()->all(),'id','fullName');
+        $model = new Deputy();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'customer'=>$customer
             ]);
         }
     }
 
     /**
-     * Updates an existing Orphan model.
+     * Updates an existing Deputy model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,19 +83,18 @@ class OrphanController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $customer=ArrayHelper::map(Customer::find()->all(),'id','fullName');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                  'customer'=>$customer
             ]);
         }
     }
 
     /**
-     * Deletes an existing Orphan model.
+     * Deletes an existing Deputy model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +107,15 @@ class OrphanController extends Controller
     }
 
     /**
-     * Finds the Orphan model based on its primary key value.
+     * Finds the Deputy model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Orphan the loaded model
+     * @return Deputy the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Orphan::findOne($id)) !== null) {
+        if (($model = Deputy::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
