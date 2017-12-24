@@ -23,15 +23,24 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'housing_account')->dropDownList($model::$housing_account_status) ?>
 
     <?= $form->field($model, 'working')->dropDownList($model::$Working_status) ?>
-
-    <?= $form->field($model,'id_customer')->widget(Select2::className(), [
+    <?php if($model->isNewRecord){ ?>
+        <?= $form->field($model,'id_customer')->widget(Select2::className(), [
+            'data' => $customer,
+            'language' => 'ru',
+            'options' => ['placeholder' => Yii::t('app','Select customer')],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]) ?>
+    <?php }else{ ?>
+        <?php echo Select2::widget([
+        'name' => 'OrpHan[id_customer]',
+        'value' => $model->customer->fullName,
         'data' => $customer,
-        'language' => 'ru',
-        'options' => ['placeholder' => Yii::t('app','Select customer')],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],]) ?>
-
+        'options' => ['placeholder' => 'Select states ...']
+        ]) ?>
+    <?php } ?>
+    
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app','Create') : Yii::t('app','Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

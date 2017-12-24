@@ -67,4 +67,6 @@ Type Family Member'     Кто он в семье
 SOURCEMESSAGE           Интернационализация
 USER_REDACT             Редактирование специалистов
 'Select customer'       Выбрать получателя.
+'Select user'           Выбрать специалиста
+'Select out date mail'
 

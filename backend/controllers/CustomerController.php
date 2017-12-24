@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
+use common\models\FamilyType;
+use common\models\User;
 use Yii;
 use common\models\Customer;
 use common\models\CustomerSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,12 +67,20 @@ class CustomerController extends Controller
     public function actionCreate()
     {
         $model = new Customer();
-
+        $typeCustomer=new FamilyType();
+        $parent=ArrayHelper::map(Customer::find()->where(['id_parent_family'=>null])->all(),'id','family_name');
+        $familyType=ArrayHelper::map(FamilyType::find()->where(['type_customer'=>$typeCustomer::FAMILY])->all(),'id','type');
+        $childType=ArrayHelper::map(FamilyType::find()->where(['type_customer'=>$typeCustomer::CHILD])->all(),'id','type');
+        $user=ArrayHelper::map(User::find()->all(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'parent'=>$parent,
+                'familyType'=>$familyType,
+                'childType'=>$childType,
+                'user'=>$user
             ]);
         }
     }
@@ -83,12 +94,20 @@ class CustomerController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $typeCustomer=new FamilyType();
+        $parent=ArrayHelper::map(Customer::find()->where(['id_parent_family'=>null])->all(),'id','family_name');
+        $familyType=ArrayHelper::map(FamilyType::find()->where(['type_customer'=>$typeCustomer::FAMILY])->all(),'id','type');
+        $childType=ArrayHelper::map(FamilyType::find()->where(['type_customer'=>$typeCustomer::CHILD])->all(),'id','type');
+        $user=ArrayHelper::map(User::find()->all(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'parent'=>$parent,
+                'familyType'=>$familyType,
+                'childType'=>$childType,
+                'user'=>$user
             ]);
         }
     }
@@ -101,8 +120,9 @@ class CustomerController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model=$this->findModel($id);
+        $model->delete=true;
+        $model->save();
         return $this->redirect(['index']);
     }
 

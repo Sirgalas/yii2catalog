@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\Deputy;
 use common\models\DeputySearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,12 +66,13 @@ class DeputyController extends Controller
     public function actionCreate()
     {
         $model = new Deputy();
-
+        $user=ArrayHelper::map(User::className(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'user'  =>  $user
             ]);
         }
     }
@@ -83,12 +86,13 @@ class DeputyController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $user=ArrayHelper::map(User::className(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'user'  =>  $user
             ]);
         }
     }

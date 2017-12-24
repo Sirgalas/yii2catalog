@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
+use common\models\Customer;
+use common\models\User;
 use Yii;
 use common\models\Mail;
 use common\models\MailSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,7 +40,6 @@ class MailController extends Controller
     {
         $searchModel = new MailSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -64,12 +66,15 @@ class MailController extends Controller
     public function actionCreate()
     {
         $model = new Mail();
-
+        $customer=ArrayHelper::map(Customer::find()->all(),'id','fullName');
+        $user=ArrayHelper::map(User::find()->all(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'customer'=>$customer,
+                'user'=>$user
             ]);
         }
     }
@@ -83,12 +88,15 @@ class MailController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $customer=ArrayHelper::map(Customer::find()->all(),'id','fulName');
+        $user=ArrayHelper::map(User::find()->all(),'id','username');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'customer'=>$customer,
+                'user'=>$user
             ]);
         }
     }

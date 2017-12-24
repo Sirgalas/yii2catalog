@@ -17,9 +17,11 @@ class FamilyType extends \yii\db\ActiveRecord
 {
     const CHILD=0;
     const ADULT=1;
+    const FAMILY=3;
     public static $type=[
         self::CHILD=>'Ребенок',
-        self::ADULT=>'Взролслый'
+        self::ADULT=>'Взрослый',
+        self::FAMILY=>'Семья'
     ];
     /**
      * @inheritdoc
@@ -39,6 +41,7 @@ class FamilyType extends \yii\db\ActiveRecord
             [['comment'], 'string'],
             [['type'], 'string', 'max' => 510],
             [['code'], 'string', 'max' => 255],
+            ['type_customer','integer']
         ];
     }
 
@@ -52,6 +55,7 @@ class FamilyType extends \yii\db\ActiveRecord
             'type' => Yii::t('app','Type'),
             'comment' => Yii::t('app','Comment'),
             'code' => Yii::t('app','Code'),
+            'type_customer' => Yii::t('app','TYPE_CUSTOMER'),
         ];
     }
 }
